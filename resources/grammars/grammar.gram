@@ -1,0 +1,37 @@
+#JSGF V1.0;
+
+/**
+ * JSGF Grammar 
+ */
+
+grammar grammar;
+
+//public <number> = ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 );
+public <number> = ( one | two | three | four | five | six | seven | eight );
+public <letter> = ( a | b | c | d | e | f | g | h );
+public <piece> = ( pawn | knight | bishop | rook | queen | king );
+public <word> = ( takes | promotes | to );
+public <square> = <letter>{1} <number>{1};
+public <piececapture> = <piece>{1} takes <square>{1};
+public <pawnfilecapture> = <letter>{1} takes <square>{1};
+public <pawnfilecapturefile> = <letter>{1} takes <letter>{1};
+public <piecemove> = <piece>{1} <square>{1};
+public <piecemoveto> = <piece>{1} to <square>{1};
+public <piecemovefile> = <piece>{1} <letter>{1} <square>{1};
+public <piecemovefileto> = <piece>{1} <letter>{1} to <square>{1};
+public <piecemoverank> = <piece>{1} <number>{1} <square>{1};
+public <piecemoverankto> = <piece>{1} <number>{1} to <square>{1};
+public <piecemovefileon> = <piece>{1} on <letter>{1} <square>{1};
+public <piecemovefileonto> = <piece>{1} on <letter>{1} to <square>{1};
+public <piecemoverankon> = <piece>{1} on <number>{1} <square>{1};
+public <piecemoverankonto> = <piece>{1} on <number>{1} to <square>{1};
+public <castle> = ( castle );
+public <castletype> = ( long | short );
+public <fullcastle> = <castletype>{1} <castle>{1};
+public <promote> = ( promote | promotes );
+public <promotenocapture> = <square>{1} <promote>{1} to <piece>{1};
+public <promotepiecemove> = <piecemove>{1} <promote>{1} to <piece>{1};
+public <promotepiecemoveto> = <piecemoveto>{1} <promote>{1} to <piece>{1};
+public <promotepiececapture> = <piececapture>{1} <promote>{1} to <piece>{1};
+public <promotepawnfilecapture> = <pawnfilecapture>{1} <promote>{1} to <piece>{1};
+public <promotepawnfilecapturefile> = <pawnfilecapturefile>{1} <promote>{1} to <piece>{1};
